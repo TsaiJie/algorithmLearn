@@ -1,3 +1,5 @@
+
+// 两个队列实现一个栈
 function TwoQueueImplementStack() {
   this.queue = [];
   this.help = [];
@@ -6,7 +8,6 @@ function TwoQueueImplementStack() {
 TwoQueueImplementStack.prototype.push = function (value) {
   // queue 入队
   this.queue.unshift(value);
-  console.log(this.queue)
 };
 TwoQueueImplementStack.prototype.pop = function () {
   // queue 出队
