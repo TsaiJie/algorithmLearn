@@ -25,7 +25,33 @@ const swap = (arr, i, j) => {
   arr[i] = arr[j];
   arr[j] = temp;
 };
-const arr = [5, 3, 7, 2, 3, 4, 1];
+const arr = [5, 3, 7, 2, 3, 4, 1, 3];
 const num = 3;
-partition3(arr, num);
+// partition3(arr, num);
+// console.log(arr);
+// 返回等于区最左和最右边的位置
+const partition3plus = (arr, L, R) => {
+  if (L > R) {
+    return [-1, -1];
+  }
+  if (L === R) {
+    return [L, R];
+  }
+  // 以 数组的R元素划分
+  const num = arr[R];
+  let i = L;
+  let p = L - 1; // 小于区域的又边界
+  let q = R + 1; // 大于区域的左边界
+  while (i !== q) {
+    if (arr[i] < num) {
+      swap(arr, i++, ++p);
+    } else if (arr[i] > num) {
+      swap(arr, i, --q);
+    } else {
+      i++;
+    }
+  }
+  return [p + 1, q - 1];
+};
+console.log(partition3plus(arr, 0, arr.length-1))
 console.log(arr);
