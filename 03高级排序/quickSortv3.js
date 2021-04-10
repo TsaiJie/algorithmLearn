@@ -32,6 +32,7 @@ const quickSort = (arr) => {
 };
 const process = (arr, L, R) => {
   if (L >= R) return;
+  //  随机选择一个位置和最后一个位置交换
   swap(arr, getRandomIntInclusive(L, R), R);
   let equalArea = partition(arr, L, R);
   process(arr, L, equalArea[0] - 1);
